@@ -1,10 +1,5 @@
-Comskip is a free mpeg commercial detector. It is a windows console application
+Comskip is a free mpeg commercial detector. It is a command line app
 that reads a mpeg file and analyses the content based on a large amount of 
-configurable parameters.  After analysis it generates a file in various possible
-formats containing the location of the commercials inside the mpeg file.
-The formats include input files for Personal Video applications like SageTV
-or GBPVR, interactive video editors (VideoRedo, Cuttermaran,Mpeg2Schnitt...)
-command line video cutters (mpgtx, cuttermaran, mencoder) and video players 
-(zoomplayer, mplayer, ...).  Comskip can read MPEG and h.264 video and MPEG2,
-AC3 and AAC audio from PS, TS and dvr-ms files upto HD resolution 
-(max 2000x1200) at 25fps (PAL) and 29.97fps (NTSC). 
+configurable parameters. 
+
+WWW: http://www.kaashoek.com/comskip/
