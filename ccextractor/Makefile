@@ -19,4 +19,6 @@ LIB_DEPENDS=    libpng.so:graphics/png
 USES=           cmake pkgconfig
 CMAKE_ARGS=	-DWITH_FFMPEG=ON
 
+PLIST_FILES=	bin/ccextractor
+
 .include <bsd.port.mk>
