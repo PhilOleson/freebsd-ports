@@ -20,6 +20,9 @@ USE_SDL=	sdl
 
 GNU_CONFIGURE=  yes
 
+PLIST_FILES=	bin/comskip \
+		bin/comskip-gui
+
 pre-configure:
 	@(cd ${WRKSRC} && ./autogen.sh)
 
