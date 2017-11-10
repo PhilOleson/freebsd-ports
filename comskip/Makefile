@@ -8,15 +8,18 @@ CATEGORIES=	multimedia
 MAINTAINER=	oz@nixil.net
 COMMENT=	Commercial Skipping utility.
 
-USE_GITHUB=	yes
-GH_ACCOUNT=	erikkaashoek 
-GH_PROJECT=	Comskip
+LICENSE=	GPLv2
+LICENSE_FILE=	${WRKSRC}/LICENSE
 
 LIB_DEPENDS=    libargtable2.so:devel/argtable \
 		libavcodec.so:multimedia/ffmpeg
 
 USES=           autoreconf
 USE_SDL=	sdl
+USE_GITHUB=	yes
+
+GH_ACCOUNT=	erikkaashoek 
+GH_PROJECT=	Comskip
 
 GNU_CONFIGURE=  yes
 

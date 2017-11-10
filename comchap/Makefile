@@ -7,13 +7,17 @@ CATEGORIES=	multimedia
 MAINTAINER=	oz@nixil.net
 COMMENT=	Commercial detection script.
 
-USE_GITHUB=	yes
-GH_ACCOUNT=	BrettSheleski
-GH_PROJECT=	comchap
-GH_TAGNAME=	d52aa36
+LICENSE=	MIT
+LICENSE_FILE=	${WRKSRC}/LICENSE.txt
 
 RUN_DEPENDS=	comskip:multimedia/comskip \
 		bash:shells/bash
+
+USE_GITHUB=	yes
+
+GH_ACCOUNT=	BrettSheleski
+GH_PROJECT=	comchap
+GH_TAGNAME=	d52aa36
 
 NO_BUILD=	yes
 
