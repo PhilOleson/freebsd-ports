@@ -1,5 +1,5 @@
---- lib_ccx/ffmpeg_intgr.c.orig	2017-11-09 16:32:29.399188000 -0700
-+++ lib_ccx/ffmpeg_intgr.c	2017-11-09 16:39:57.319634000 -0700
+--- src/lib_ccx/ffmpeg_intgr.c.orig	2017-01-23 20:33:53 UTC
++++ src/lib_ccx/ffmpeg_intgr.c
 @@ -3,7 +3,7 @@
  #ifdef ENABLE_FFMPEG
  #include <libavformat/avformat.h>
