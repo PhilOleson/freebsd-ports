@@ -12,14 +12,26 @@ LICENSE=	GPLv2
 LICENSE_FILE=	${WRKSRC}/LICENSE
 
 LIB_DEPENDS=    libargtable2.so:devel/argtable \
+		libfontconfig.so:x11-fonts/fontconfig \
+		libgmp.so:math/gmp \
+		libgnutls.so:security/gnutls \
+		libogg.so:audio/libogg \
+		libopencv_core.so:graphics/opencv-core \
+		libtheoraenc.so:multimedia/libtheora \
+		libvorbisenc.so:audio/libvorbis \
+		libvpx.so:multimedia/libvpx \
+		libx264.so:multimedia/libx264 \
+		libx265.so:multimedia/x265 \
+		libxvidcore.so:multimedia/xvid \
 		libavcodec.so:multimedia/ffmpeg
 
-USES=           autoreconf
-USE_SDL=	sdl
-USE_GITHUB=	yes
+USES=           autoreconf localbase:ldflags
 
+USE_GITHUB=	yes
 GH_ACCOUNT=	erikkaashoek 
 GH_PROJECT=	Comskip
+USE_SDL=	sdl
+USE_LDCONFIG=	yes
 
 GNU_CONFIGURE=  yes
 
