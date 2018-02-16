@@ -2,7 +2,7 @@
 
 PORTNAME=	ccextractor
 DISTVERSIONPREFIX=	v
-DISTVERSION=	0.85
+DISTVERSION=	0.86
 CATEGORIES=	multimedia
 
 MAINTAINER=	oz@nixil.net
@@ -26,7 +26,9 @@ LIB_DEPENDS=	libfontconfig.so:x11-fonts/fontconfig \
 		libvpx.so:multimedia/libvpx \
 		libx264.so:multimedia/libx264 \
 		libx265.so:multimedia/x265 \
-		libxvidcore.so:multimedia/xvid
+		libxvidcore.so:multimedia/xvid \
+		libtesseract.so:graphics/tesseract \
+		liblept.so:graphics/leptonica
 
 USES=		cmake:outsource iconv localbase:ldflags pkgconfig
 USE_GITHUB=	yes
@@ -36,7 +38,7 @@ USE_LDCONFIG=	yes
 
 CMAKE_SOURCE_PATH=	${WRKSRC}/src
 CMAKE_ARGS+=	-DBUILD_SHARED_LIBS:BOOL=ON
-CMAKE_ARGS+=	-DWITH_OCR:BOOL=OFF # fails: CFLAGS get semicolon-separated for some reason
+CMAKE_ARGS+=	-DWITH_OCR:BOOL=ON # fails: CFLAGS get semicolon-separated for some reason
 CMAKE_ARGS+=	-DWITH_SHARING:BOOL=OFF # enable when net/nanomsg is available
 
 OPTIONS_DEFINE=		FFMPEG
