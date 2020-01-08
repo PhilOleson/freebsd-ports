@@ -2,7 +2,7 @@
 
 PORTNAME=	comskip
 DISTVERSIONPREFIX=	v
-DISTVERSION=	0.82.005
+DISTVERSION=	0.82.010
 CATEGORIES=	multimedia
 
 MAINTAINER=	oz@nixil.net
@@ -30,7 +30,7 @@ USES=           autoreconf localbase:ldflags
 USE_GITHUB=	yes
 GH_ACCOUNT=	erikkaashoek 
 GH_PROJECT=	Comskip
-GH_TAGNAME=	3bfa4be
+GH_TAGNAME=	deb7460
 USE_SDL=	sdl
 USE_LDCONFIG=	yes
 
