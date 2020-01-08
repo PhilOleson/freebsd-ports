@@ -1,7 +1,7 @@
 # $FreeBSD$
 
 PORTNAME=	comchap
-DISTVERSION=	0.0.1
+DISTVERSION=	0.0.2
 CATEGORIES=	multimedia
 
 MAINTAINER=	oz@nixil.net
@@ -17,7 +17,7 @@ USE_GITHUB=	yes
 
 GH_ACCOUNT=	BrettSheleski
 GH_PROJECT=	comchap
-GH_TAGNAME=	d52aa36
+GH_TAGNAME=	bc03ed0
 
 NO_BUILD=	yes
 
