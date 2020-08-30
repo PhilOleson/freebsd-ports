@@ -2,7 +2,7 @@
 
 PORTNAME=	ccextractor
 DISTVERSIONPREFIX=	v
-DISTVERSION=	0.86
+DISTVERSION=	0.88
 CATEGORIES=	multimedia
 
 MAINTAINER=	oz@nixil.net
@@ -30,7 +30,7 @@ LIB_DEPENDS=	libfontconfig.so:x11-fonts/fontconfig \
 		libtesseract.so:graphics/tesseract \
 		liblept.so:graphics/leptonica
 
-USES=		cmake:outsource iconv localbase:ldflags pkgconfig
+USES=		cmake iconv localbase:ldflags pkgconfig
 USE_GITHUB=	yes
 GH_ACCOUNT=	CCExtractor
 USE_XORG=	x11
