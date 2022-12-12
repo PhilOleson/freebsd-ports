@@ -1,20 +1,11 @@
---- src/CMakeLists.txt.orig	2018-01-09 15:51:22.000000000 -0700
-+++ src/CMakeLists.txt	2018-02-15 21:31:59.996215000 -0700
-@@ -112,14 +112,14 @@
-     set (EXTRA_LIBS ${EXTRA_LIBS} ws2_32 winmm)
- else (WIN32)
-     # Adding some platform specific library path
--    link_directories (/opt/local/lib)
--    link_directories (/usr/local/lib)
-+#   link_directories (/opt/local/lib)
-+#   link_directories (/usr/local/lib)
- endif(WIN32)
- 
- if(MSVC)
-     set (CMAKE_C_FLAGS "${CMAKE_C_FLAGS} -W3 /wd4005 /wd4996")
- else (MSVC)
--    set (CMAKE_C_FLAGS "${CMAKE_C_FLAGS} -Wall -Wno-write-strings -g -std=gnu99")
-+    set (CMAKE_C_FLAGS "${CMAKE_C_FLAGS} -Wall -Wno-write-strings -std=gnu99")
- endif(MSVC)
- 
- set (CMAKE_C_FLAGS "${CMAKE_C_FLAGS} -D_FILE_OFFSET_BITS=64")
+--- src/CMakeLists.txt.orig	2022-12-08 16:57:58.200393000 -0700
++++ src/CMakeLists.txt	2022-12-08 17:02:12.290204000 -0700
+@@ -46,6 +46,8 @@
+ if(UNIX)
+   if (${CMAKE_SYSTEM_NAME} MATCHES "Darwin")
+     add_definitions(-DGPAC_CONFIG_DARWIN)
++  elseif(${CMAKE_SYSTEM_NAME} MATCHES "FreeBSD")
++    add_definitions(-DGPAC_CONFIG_FREEBSD)
+   else ()
+     add_definitions(-DGPAC_CONFIG_LINUX)
+   endif()

@@ -1,8 +1,6 @@
-# $FreeBSD: head/multimedia/ccextractor/Makefile 454834 2017-11-24 19:08:18Z yuri $
-
 PORTNAME=	ccextractor
 DISTVERSIONPREFIX=	v
-DISTVERSION=	0.86
+DISTVERSION=	0.94
 CATEGORIES=	multimedia
 
 MAINTAINER=	oz@nixil.net
@@ -10,14 +8,14 @@ COMMENT=	Closed caption extractor for MPEG and H264 files
 
 LICENSE=	GPLv2
 
+NO_STAGE=yes
 LIB_DEPENDS=	libfontconfig.so:x11-fonts/fontconfig \
 		libfreetype.so:print/freetype2 \
 		libgmp.so:math/gmp \
 		libgnutls.so:security/gnutls \
 		libogg.so:audio/libogg \
-		libopencv_core.so:graphics/opencv-core \
+		libopencv_core.so:graphics/opencv \
 		libpng.so:graphics/png \
-		libschroedinger-1.0.so:multimedia/schroedinger \
 		libtheoraenc.so:multimedia/libtheora \
 		libv4l2.so:multimedia/libv4l \
 		libva-x11.so:multimedia/libva \
@@ -27,19 +25,21 @@ LIB_DEPENDS=	libfontconfig.so:x11-fonts/fontconfig \
 		libx264.so:multimedia/libx264 \
 		libx265.so:multimedia/x265 \
 		libxvidcore.so:multimedia/xvid \
-		libtesseract.so:graphics/tesseract \
-		liblept.so:graphics/leptonica
+		libleptonica.so:graphics/leptonica \
+		libtesseract.so:graphics/tesseract
 
-USES=		cmake:outsource iconv localbase:ldflags pkgconfig
+USES=		cmake:noninja iconv localbase:ldflags pkgconfig xorg
 USE_GITHUB=	yes
 GH_ACCOUNT=	CCExtractor
+GH_PROJECT=	ccextractor
 USE_XORG=	x11
 USE_LDCONFIG=	yes
 
 CMAKE_SOURCE_PATH=	${WRKSRC}/src
-CMAKE_ARGS+=	-DBUILD_SHARED_LIBS:BOOL=ON
-CMAKE_ARGS+=	-DWITH_OCR:BOOL=ON # fails: CFLAGS get semicolon-separated for some reason
-CMAKE_ARGS+=	-DWITH_SHARING:BOOL=OFF # enable when net/nanomsg is available
+CMAKE_ON=	WITH_OCR
+#CMAKE_ARGS+=	-DBUILD_SHARED_LIBS:BOOL=ON
+#CMAKE_ARGS+=	-DWITH_OCR:BOOL=OFF # fails: CFLAGS get semicolon-separated for some reason
+#CMAKE_ARGS+=	-DWITH_SHARING:BOOL=OFF # enable when net/nanomsg is available
 
 OPTIONS_DEFINE=		FFMPEG
 OPTIONS_DEFAULT=	FFMPEG

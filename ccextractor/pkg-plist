@@ -20,10 +20,11 @@ include/ccx_decoders_structs.h
 include/ccx_decoders_vbi.h
 include/ccx_decoders_xds.h
 include/ccx_demuxer.h
+include/ccx_demuxer_mxf.h
 include/ccx_dtvcc.h
 include/ccx_encoders_common.h
 include/ccx_encoders_helpers.h
-include/ccx_encoders_spupng.h
+include/ccx_encoders_mcc.h
 include/ccx_encoders_structs.h
 include/ccx_encoders_xds.h
 include/ccx_gxf.h
@@ -31,6 +32,7 @@ include/ccx_mp4.h
 include/ccx_share.h
 include/ccx_sub_entry_message.pb-c.h
 include/compile_info.h
+include/compile_info_real.h
 include/configuration.h
 include/disable_warnings.h
 include/dvb_subtitle_decoder.h
@@ -41,13 +43,13 @@ include/hamming.h
 include/hardsubx.h
 include/lib_ccx.h
 include/list.h
+include/matroska.h
 include/networking.h
 include/ocr.h
-include/spupng_encoder.h
 include/stdintmsc.h
 include/teletext.h
 include/ts_functions.h
 include/utility.h
 include/wtv_constants.h
-lib/libccx.so
+lib/libccx.a
 libdata/pkgconfig/ccx.pc
