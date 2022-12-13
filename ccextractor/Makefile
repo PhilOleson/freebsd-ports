@@ -8,7 +8,7 @@ COMMENT=	Closed caption extractor for MPEG and H264 files
 
 LICENSE=	GPLv2
 
-NO_STAGE=yes
+BUILD_DEPENDS=  ${RUST_DEFAULT}>=1.39.0:lang/${RUST_DEFAULT}
 LIB_DEPENDS=	libfontconfig.so:x11-fonts/fontconfig \
 		libfreetype.so:print/freetype2 \
 		libgmp.so:math/gmp \
