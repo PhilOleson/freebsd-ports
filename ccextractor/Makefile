@@ -8,6 +8,9 @@ COMMENT=	Closed caption extractor for MPEG and H264 files
 
 LICENSE=	GPLv2
 
+OPTIONS_DEFINE=		FFMPEG EXAMPLE
+OPTIONS_DEFAULT=	FFMPEG EXAMPLE
+
 BUILD_DEPENDS=  ${RUST_DEFAULT}>=1.39.0:lang/${RUST_DEFAULT}
 LIB_DEPENDS=	libfontconfig.so:x11-fonts/fontconfig \
 		libfreetype.so:print/freetype2 \
@@ -28,23 +31,33 @@ LIB_DEPENDS=	libfontconfig.so:x11-fonts/fontconfig \
 		libleptonica.so:graphics/leptonica \
 		libtesseract.so:graphics/tesseract
 
-USES=		cmake:noninja iconv localbase:ldflags pkgconfig xorg
+USES=		cmake:noninja iconv localbase:ldflags pkgconfig xorg cargo
 USE_GITHUB=	yes
 GH_ACCOUNT=	CCExtractor
 GH_PROJECT=	ccextractor
 USE_XORG=	x11
 USE_LDCONFIG=	yes
+CARGO_CONFIGURE=no
+CARGO_BUILD=	no
+CARGO_INSTALL=	no
+CARGO_TEST=	no
 
 CMAKE_SOURCE_PATH=	${WRKSRC}/src
-CMAKE_ON=	WITH_OCR
-#CMAKE_ARGS+=	-DBUILD_SHARED_LIBS:BOOL=ON
-#CMAKE_ARGS+=	-DWITH_OCR:BOOL=OFF # fails: CFLAGS get semicolon-separated for some reason
-#CMAKE_ARGS+=	-DWITH_SHARING:BOOL=OFF # enable when net/nanomsg is available
-
-OPTIONS_DEFINE=		FFMPEG
-OPTIONS_DEFAULT=	FFMPEG
+CMAKE_ON=	WITH_OCR WITH_HARDSUBX
+CMAKE_OFF=	WITH_SHARING
 
 FFMPEG_CMAKE_BOOL=	WITH_FFMPEG
 FFMPEG_LIB_DEPENDS=	libavcodec.so:multimedia/ffmpeg
 
-.include <bsd.port.mk>
+.include <bsd.port.pre.mk>
+EXAMPLE_FILE=	ccextractor.cnf.sample
+
+do-install:
+	${INSTALL_PROGRAM} ${BUILD_WRKSRC}/${PORTNAME} ${STAGEDIR}${PREFIX}/bin
+
+do-install-EXAMPLES-on:
+	${MKDIR} ${STAGEDIR}${EXAMPLESDIR}
+	cd ${WRKSRC}/docs; ${INSTALL_DATA} ${EXAMPLE_FILE} ${STAGEDIR}${EXAMPLESDIR}
+
+.include <bsd.port.post.mk>
+
