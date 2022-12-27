@@ -49,15 +49,11 @@ CMAKE_OFF=	WITH_SHARING
 FFMPEG_CMAKE_BOOL=	WITH_FFMPEG
 FFMPEG_LIB_DEPENDS=	libavcodec.so:multimedia/ffmpeg
 
-.include <bsd.port.pre.mk>
-EXAMPLE_FILE=	ccextractor.cnf.sample
+SAMPLE_FILE=	ccextractor.cnf.sample
 
 do-install:
 	${INSTALL_PROGRAM} ${BUILD_WRKSRC}/${PORTNAME} ${STAGEDIR}${PREFIX}/bin
+	cd ${WRKSRC}/docs; ${INSTALL_DATA} ${SAMPLE_FILE} ${STAGEDIR}${PREFIX}/etc
 
-do-install-EXAMPLES-on:
-	${MKDIR} ${STAGEDIR}${EXAMPLESDIR}
-	cd ${WRKSRC}/docs; ${INSTALL_DATA} ${EXAMPLE_FILE} ${STAGEDIR}${EXAMPLESDIR}
-
-.include <bsd.port.post.mk>
+.include <bsd.port.mk>
 

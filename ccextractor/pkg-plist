@@ -1,2 +1,2 @@
 bin/ccextractor
-%%PORTEXAMPLES%%%%EXAMPLESDIR%%/ccextractor.cnf.sample
+@sample etc/ccextractor.cnf.sample
